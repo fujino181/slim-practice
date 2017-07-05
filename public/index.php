@@ -15,4 +15,10 @@ $app->get('/json', function($request, $response) {
 
   return $response->withJson($json);
 });
+
+$app->get('/db', function($request, $response) {
+  $db = new MyNamespace\DB(); 
+  $db->select();
+});
+
 $app->run();
