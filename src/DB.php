@@ -15,12 +15,12 @@ class DB {
   }
 
   function select() {
-    //$stmt = $pdo->prepare("select * from hoge");
-    ////$stmt->bindValue(1, "value");
-    //$stmt->execute();
-    //foreach($stmt as $loop) {
-    //  echo $loop;
-    //}
+    $stmt = $pdo->prepare("select * from hoge");
+    //$stmt->bindValue(1, "value");
+    $stmt->execute();
+    foreach($stmt as $loop) {
+      echo $loop;
+    }
   }
 }
 
