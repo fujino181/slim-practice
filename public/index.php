@@ -16,9 +16,12 @@ $app->get('/json', function($request, $response) {
   return $response->withJson($json);
 });
 
-$app->get('/db', function($request, $response) {
+$app->get('/db', function($request, $response) use ($app) {
   $db = new MyNamespace\DB(); 
-  $db->select();
+  $table = $_GET['table'];
+  $result = $db->select($table);
+
+  return $response->withStatus(200)->withJson($result);
 });
 
 $app->run();
